@@ -23,6 +23,5 @@ jobs:
       - name: Sync static site to S3
         run: aws s3 sync ./ s3://portfolio-charles-otaru --delete --exclude ".git/*" --exclude ".github/*"
         # Replace `portfolio-charles-otaru` with your bucket name
-
       - name: Invalidate CloudFront cache
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
